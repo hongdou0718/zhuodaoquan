@@ -146,24 +146,6 @@ def render_inline(source: str) -> str:
     return rendered
 
 
-def join_soft_lines(lines: list[str]) -> str:
-    result = ""
-    for line in lines:
-        stripped = line.strip()
-        if not stripped:
-            continue
-        if (
-            result
-            and result[-1:].isascii()
-            and result[-1:].isalnum()
-            and stripped[:1].isascii()
-            and stripped[:1].isalnum()
-        ):
-            result += " "
-        result += stripped
-    return result
-
-
 def markdown_to_html(source: str) -> str:
     lines = source.replace("\r\n", "\n").replace("\r", "\n").split("\n")
     output: list[str] = []
@@ -264,7 +246,13 @@ def markdown_to_html(source: str) -> str:
                 break
             paragraph.append(current)
             index += 1
-        output.append(f"<p>{render_inline(join_soft_lines(paragraph))}</p>")
+        output.append(
+            "\n".join(
+                f"<p>{render_inline(current.strip())}</p>"
+                for current in paragraph
+                if current.strip()
+            )
+        )
 
     return "\n".join(output)
 
