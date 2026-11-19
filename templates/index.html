@@ -1,0 +1,64 @@
+<section class="home-intro">
+  <div class="home-intro__copy">
+    <p class="eyebrow">个人写作与阅读笔记</p>
+    <h1>{{site_title}}</h1>
+    <p class="home-intro__tagline">{{tagline}}</p>
+  </div>
+  <div class="home-intro__note">
+    <p class="mini-label">写在前面</p>
+    <p>{{home_note}}</p>
+    <a class="text-link" href="about.html">
+      关于这个写作空间
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 17 17 7M7 7h10v10"></path>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<section class="archive" id="archive" aria-labelledby="archive-title">
+  <div class="archive__heading">
+    <div>
+      <p class="section-index">01 / 文章</p>
+      <h2 id="archive-title">最近写下</h2>
+    </div>
+    <p class="archive__count"><span id="visible-count">{{post_count}}</span> 篇文字</p>
+  </div>
+
+  <div class="archive-tools">
+    <label class="search-box">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.3-4.3"></path>
+      </svg>
+      <span class="sr-only">搜索文章</span>
+      <input id="post-search" type="search" placeholder="搜索标题、摘要或标签" autocomplete="off">
+    </label>
+    <div class="tag-filters" role="group" aria-label="按标签筛选">
+      <button class="tag-filter is-active" type="button" data-tag="all">全部</button>
+      {{tag_filters}}
+    </div>
+  </div>
+
+  <ol class="post-list" id="post-list">
+    {{post_list}}
+  </ol>
+  <p class="empty-state" id="empty-state" hidden>没有找到相关文章，试试其他关键词。</p>
+</section>
+
+<section class="home-about" aria-labelledby="about-title">
+  <div class="home-about__visual">
+    <img src="assets/writing-desk.webp" alt="纸页与笔的极简线条插画" width="1400" height="900" loading="lazy" decoding="async">
+  </div>
+  <div class="home-about__copy">
+    <p class="section-index">02 / 关于</p>
+    <h2 id="about-title">在纸上，<br>重新整理生活。</h2>
+    <p>{{about_summary}}</p>
+    <a class="text-link" href="about.html">
+      认识作者
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 17 17 7M7 7h10v10"></path>
+      </svg>
+    </a>
+  </div>
+</section>
